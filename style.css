@@ -1,0 +1,36 @@
+/* Google font */
+@import url('https://fonts.googleapis.com/css?family=Orbitron');
+h1,
+h3 {
+  text-align: center;
+  padding-top: 20px;
+  margin-bottom: : 50px;
+
+
+}
+
+#clock {
+   
+  width: 250px;
+  height: 250px;
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-style: oblique;
+  font-size: 30px;
+}
+#formdiv {
+  width: 300px;
+  height: 300px;
+  position: absolute;
+  left: 50%;
+  top: 30%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+}

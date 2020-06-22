@@ -1,0 +1,52 @@
+<head>
+<link rel="stylesheet" type="text/css" href="style.css">
+
+</head>
+<h1>Time</h1>
+<div id="clock"></div>
+<h3>Set your Countdown!</h3>
+<div id="formdiv">
+    <input id="myDate" type="date">
+    <button onclick="window.initializeClock('clockdiv', 'myDate')">Start</button>
+</div>
+
+<div id="clockdiv"></div>
+<script type="text/javascript">
+var myVar = setInterval(function() {
+  myTimer();
+}, 1000);
+
+function myTimer() {
+  var d = new Date();
+  document.getElementById("clock").innerHTML = d.toLocaleTimeString();
+}
+</script>
+<script type="text/javascript">
+	window.initializeClock = function(clockId, dateId) {
+    var getTimeRemaining = function(endtime) {
+        var t = Date.parse(endtime) - (new Date()).getTime();
+        var seconds = Math.floor( (t/1000) % 60 );
+        var minutes = Math.floor( (t/1000/60) % 60);
+        var hours = Math.floor( (t/(1000*60*60)) % 24);
+        var days = Math.floor( t/(1000*60*60*24) );
+        return {
+            'total': t,
+            'days': days,
+            'hours': hours,
+            'minutes': minutes,
+            'seconds': seconds
+        };
+    }
+
+    var clock = document.getElementById(clockId);
+    var deadline = document.getElementById(dateId).value;
+    var timeinterval = setInterval(function(){
+        var t = getTimeRemaining(deadline);
+        clock.innerHTML = 'days: ' + t.days + '<br>' + 'hours: ' + t.hours + '<br>' + 'minutes: ' + t.minutes + '<br>' + 'seconds: ' + t.seconds;
+        if(t.total<=0){
+            clearInterval(timeinterval);
+        }
+    }, 1000);
+}
+</script>
+
